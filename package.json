@@ -1,0 +1,25 @@
+{
+  "name": "github-api-joyride",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.0",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^1.19.4"
+  }
+}
