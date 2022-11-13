@@ -43,3 +43,7 @@ Requests are authenticated using the `x-access-token` header with a valid JWT. W
 - [redis](https://github.com/redis/node-redis) - A modern, high performance Redis client
 - [dotenv](https://github.com/motdotla/dotenv) - Loads environment variables from .env file
 - [nodemon](https://github.com/remy/nodemon) - Simple monitor script for use during development of a Node.js app
+
+# Calculate Hamming Distance
+
+- `node hamming_distance int1 int2` to call the function
