@@ -2,12 +2,15 @@ const express = require('express')
 const bcrypt = require("bcrypt")
 const mysql = require('mysql')
 const fetch = require('node-fetch')
-const redis = require('redis')
+
 const jwt = require("jsonwebtoken")
-const { promisifyAll } = require('bluebird')
-promisifyAll(redis);
+
 const PORT = process.env.PORT || 5000;
 const REDIS_PORT = process.env.REDIS_PORT || 6379;
+
+const redis = require('redis')
+const { promisifyAll } = require('bluebird')
+promisifyAll(redis);
 const client = redis.createClient(REDIS_PORT)
 client.on('error', (err) => console.log('Redis Client Error', err))
 require("dotenv").config()
@@ -146,7 +149,7 @@ app.post("/login", async (req, res) => {
             const hashedPassword = result[0].password
             if (await bcrypt.compare(password, hashedPassword)) {
                 const user = { username: username, password: hashedPassword }
-                const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1m" })
+                const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "15m" })
                 returnData(res, 200, "logged in", "", { access_token: token })
             } else {
                 returnData(res, 401, "Unauthorized", "Unauthorized")
